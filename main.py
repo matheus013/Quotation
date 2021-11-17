@@ -6,7 +6,8 @@ import pandas as pd
 import requests
 from pycoingecko import CoinGeckoAPI
 
-wallet = '0x35cac134b8a88edddd3d0b1d5c2157415748b159'  # m
+wallet = '0x35cac134b8a88edddd3d0b1d5c2157415748b159'
+start = 2325.76
 
 cg = CoinGeckoAPI()
 
@@ -114,5 +115,7 @@ for key, value in token_in.items():
 print(f"\nTotal (in):", "$ {:,.2f}".format(sum_in_total), "R$ {:,.2f}".format(float(sum_in_total) * float(BRL_USD)))
 print(f"Total (out):", "$ {:,.2f}".format(sum_out_total),
       "R$ {:,.2f}".format(float(sum_out_total) * float(BRL_USD)))
+
+print(f"Start R$ {start}, current R$", 'R$ {:,.2f}'.format(float(sum_in_total) * float(BRL_USD)))
 
 json.dump(bnb_usd_by_date, open("data/bnb_usd_by_date.json", 'w'))
