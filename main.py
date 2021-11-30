@@ -65,9 +65,12 @@ print('Valor atual: R$:', quotation['USD']['bid'], '\n\n')
 
 BRL_USD = quotation['USD']['bid']
 
+df['DateTime'] = pd.to_datetime(df.DateTime, format='%d-%m-%Y')
+
 df['DateTime'] = df['DateTime'].dt.strftime('%d-%m-%Y')
 df_tokens['DateTime'] = df_tokens['DateTime'].dt.strftime('%d-%m-%Y')
 df['total'] = df['Value_IN(BNB)'] - df['Value_OUT(BNB)']
+
 in_total = 0.0
 out_total = 0.0
 
